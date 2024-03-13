@@ -14,25 +14,3 @@ export const useEpisodesById = (id) => {
     keepPreviousData: true,
   });
 };
-
-export const useCharacterById = (id) => {
-  return useQuery(["characters", id], () => fetchCharactersById(id), {
-    keepPreviousData: true,
-  });
-};
-
-// export const useMultipleCharacters = (id) => {
-//   return useQuery(["characters", id], () => fetchCharactersById(id), {
-//     keepPreviousData: true,
-//   });
-// };
-
-export const useMultipleCharacters = (characterIds) => {
-  return useQuery(
-    ["characters", { characterIds }],
-    () => fetchCharactersById(characterIds),
-    {
-      enabled: !!characterIds.length, // characterIds array'i dolu olduğunda sorguyu çalıştır
-    }
-  );
-};

@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useEpisodesById } from "../../hooks/useEpisodes";
-import { useMultipleCharacters } from "../../hooks/useEpisodes";
+import { useMultipleCharacters } from "../../hooks/useCharacters";
 import CharacterCard from "../../components/CharacterCard";
 
 const EpisodeDetailPage = () => {
