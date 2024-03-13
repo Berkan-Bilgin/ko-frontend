@@ -1,6 +1,5 @@
 import Modal from "react-modal";
 import { SlClose } from "react-icons/sl";
-/
 
 const customStyles = ({ maxWidth, maxHeight }) => ({
   overlay: {
@@ -16,12 +15,12 @@ const customStyles = ({ maxWidth, maxHeight }) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "start",
-    top: "10%", 
+    top: "10%",
     left: "10%",
     right: "10%",
     bottom: "10%",
     border: "2px solid var(--primary-color)",
-    backgroundColor: "red", 
+    backgroundColor: "red",
     opacity: "1",
     overflow: "auto",
     WebkitOverflowScrolling: "touch",
