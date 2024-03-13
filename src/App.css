@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .link-base {
+    @apply text-secondary hover:text-white cursor-pointer text-2xl px-4;
+  }
+}
