@@ -42,18 +42,17 @@ const EpisodeDetailPage = () => {
 
   return (
     <div>
-      <h1>{episodeName}</h1>
-      <p>ID: {episode?.id}</p>
-      <p>Name: {episode?.name}</p>
-      <p>Air Date: {episode?.air_date}</p>
-      <p>Episode: {episode?.episode}</p>
+      <h1 className="text-3xl text-primary">{episodeName}</h1>
+
+      <p className="text-xl text-primary">Air Date: {episode?.air_date}</p>
+      <p className="text-xl text-primary">Episode: {episode?.episode}</p>
 
       <input
         type="text"
-        placeholder="Karakter ara..."
+        placeholder="Search Character..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="search-input"
+        className="mb-4 w-full px-4 mt-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-green-400 focus:ring-1 "
       />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
