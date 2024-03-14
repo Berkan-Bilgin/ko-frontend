@@ -9,6 +9,7 @@ import "./index.css";
 import { PersistGate } from "redux-persist/integration/react";
 import Layout from "./components/Layout.jsx";
 import Modal from "react-modal";
+import { SnackbarProvider } from "notistack";
 
 const queryClient = new QueryClient();
 Modal.setAppElement("#root");
@@ -17,11 +18,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Layout>
-            <App />
-          </Layout>
-        </BrowserRouter>
+        <SnackbarProvider>
+          <BrowserRouter>
+            <Layout>
+              <App />
+            </Layout>
+          </BrowserRouter>
+        </SnackbarProvider>
       </QueryClientProvider>
     </PersistGate>
   </Provider>

@@ -4,21 +4,35 @@ import { addFavorite, removeFavorite } from "../redux/favoritesSlice";
 import ModalComponent from "./ModalComponent";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
+import { useSnackbar } from "notistack";
+
 const CharacterCard = ({ character }) => {
   const dispatch = useDispatch();
   const favorites = useSelector((state) => state.favorites.items);
   const isFavorite = favorites.some((item) => item.id === character.id);
   const [showModal, setShowModal] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleFavoriteClick = () => {
     if (isFavorite) {
       setShowModal(true);
-    } else {
+    } else if (favorites.length < 10) {
       dispatch(addFavorite(character));
+      enqueueSnackbar("Character added to favorites.", {
+        variant: "success",
+      });
+    } else {
+      enqueueSnackbar("You can only add up to 10 favorites.", {
+        variant: "warning",
+      });
     }
   };
 
   const confirmRemoveFavorite = () => {
+    enqueueSnackbar("Character removed from favorites", {
+      variant: "danger",
+      autoHideDuration: 3000,
+    });
     dispatch(removeFavorite(character));
     setShowModal(false);
   };
